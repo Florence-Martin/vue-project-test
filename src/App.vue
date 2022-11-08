@@ -1,26 +1,39 @@
+<!-- eslint-disable prettier/prettier -->
+<!-- eslint-disable vue/valid-template-root -->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="App">
+    <Layout />
+
+    <section
+      class="flex justify-center xl:justify-start flex-wrap-reverse gap-6 bg-[#ECF2F6]"
+    >
+      <Cards :key="cards.id" :cards="cards" />
+    </section>
+  </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Layout from "./components/Layout.vue";
+import Cards from "./components/Cards.vue";
+
+import data from "./data/data.json";
 
 export default {
   name: "App",
+
   components: {
-    HelloWorld,
+    Layout,
+    Cards,
+  },
+
+  data() {
+    return {
+      cards: data,
+    };
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
 </style>
